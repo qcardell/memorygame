@@ -37,14 +37,51 @@ function turn(elem, src) {
 }
 
 
-var front = "file:///C:/Users/qcard/udacity-course/Memory%20Game/img/front.png"
+//var front = "file:///C:/Users/qcard/udacity-course/Memory%20Game/img/front.png"
+var front = "";
+//var front = "file:///C:/Users/qcard/udacity-course/Memory%20Game/img/"+this.id+".png";
 var back = "file:///C:/Users/qcard/udacity-course/Memory%20Game/img/back.png"
 $(".turnCSS").click(function () {
-    console.log(this.src);
-    console.log(back);
+    //console.log(this.src);
+    //console.log(src);
+    switch(this.id){
+        case '1':
+        case '2':
+        front = "file:///C:/Users/qcard/udacity-course/Memory%20Game/img/1.png";
+        break;
+        case '3':
+        case '4':
+        front = "file:///C:/Users/qcard/udacity-course/Memory%20Game/img/2.png";
+        break;
+        case '5':
+        case '6':
+        front = "file:///C:/Users/qcard/udacity-course/Memory%20Game/img/3.png";
+        break;
+        case '7':
+        case '8':
+        front = "file:///C:/Users/qcard/udacity-course/Memory%20Game/img/4.png";
+        break;
+        case '9':
+        case '10':
+        front = "file:///C:/Users/qcard/udacity-course/Memory%20Game/img/5.png";
+        break;
+        case '11':
+        case '12':
+        front = "file:///C:/Users/qcard/udacity-course/Memory%20Game/img/6.png";
+        break;
+        case '13':
+        case '14':
+        front = "file:///C:/Users/qcard/udacity-course/Memory%20Game/img/7.png";
+        break;
+        case '15':
+        case '16':
+        front = "file:///C:/Users/qcard/udacity-course/Memory%20Game/img/8.png";
+        break;
+    }
+    console.log("this.id= "+this.id);
+    console.log("front= "+ front);
     var src = this.src == back ? front : back; //for toggling fun
     //console.log(this.src);
-    //console.log(this + " " + src);
     turnCSS(this, src)
 })
 /*
