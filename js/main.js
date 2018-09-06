@@ -1,4 +1,8 @@
 var CARDWIDTH = 50;
+var compareCount=0;
+var movesCount = 0;
+var front = "";
+var moveText = document.querySelector('.moveText');
 
 function turnCompatible(elem, src) {
     $(elem).animate({
@@ -38,12 +42,12 @@ function turn(elem, src) {
 
 
 //var front = "file:///C:/Users/qcard/udacity-course/Memory%20Game/img/front.png"
-var front = "";
 //var front = "file:///C:/Users/qcard/udacity-course/Memory%20Game/img/"+this.id+".png";
 var back = "file:///C:/Users/qcard/udacity-course/Memory%20Game/img/back.png"
 $(".turnCSS").click(function () {
     //console.log(this.src);
     //console.log(src);
+    //selects images based on ID number
     switch(this.id){
         case '1':
         case '2':
@@ -78,10 +82,14 @@ $(".turnCSS").click(function () {
         front = "file:///C:/Users/qcard/udacity-course/Memory%20Game/img/8.png";
         break;
     }
-    console.log("this.id= "+this.id);
-    console.log("front= "+ front);
+    //console.log("this.id= "+this.id);
+    //console.log("front= "+ front);
     var src = this.src == back ? front : back; //for toggling fun
     //console.log(this.src);
+    compareCount++;
+    movesCount++;
+    //console.log(compareCount);
+    moveText.textContent = "Move: " + movesCount;
     turnCSS(this, src)
 })
 /*
