@@ -2,13 +2,13 @@
  * Globals
  */
 
-/* Links */
+/* Links 
 a,
 a:focus,
 a:hover {
   color: #fff;
 }
-
+*/
 /* Custom default button */
 .btn-secondary,
 .btn-secondary:hover,
@@ -40,12 +40,15 @@ body {
 
 .cover-container {
   max-width: 42em;
+  max-height: 500px;
 }
 
 
 /*
  * Header
  */
+ /*
+
 .masthead {
   margin-bottom: 2rem;
 }
@@ -77,7 +80,6 @@ body {
   color: #fff;
   border-bottom-color: #fff;
 }
-
 @media (min-width: 48em) {
   .masthead-brand {
     float: left;
@@ -86,10 +88,11 @@ body {
     float: right;
   }
 }
-
+*/
 .innercover{
   background-color: white;
   height: 100%;
+  /*max-height: 480px;*/
 }
 
 
@@ -108,15 +111,15 @@ body {
   transform: translate(0, 20px) rotateY(90deg);
   -webkit-transform: translate(0, 20px) rotateY(90deg);
 }
-
+/*
 .colums{
   width:100%;
   height:100%;
   min-height: 100px;
 }
-/*
+
  * Cover
- */
+ 
 .cover {
   padding: 0 1.5rem;
 }
@@ -125,10 +128,11 @@ body {
   font-weight: 700;
 }
 
-
+*/
 /*
  * Footer
- */
+ 
 .mastfoot {
   color: rgba(255, 255, 255, .5);
 }
+<img class="card turnCSS" src="file:///C:/Users/qcard/udacity-course/Memory%20Game/img/back.png" />
