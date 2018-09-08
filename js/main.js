@@ -3,6 +3,9 @@ var compareCount=0;
 var movesCount = 0;
 var front = "";
 var moveText = document.querySelector('.moveText');
+var cardstocompare = new Array();
+var flipboolean = false;
+var numberofMatches = 0;
 
 function turnCompatible(elem, src) {
     $(elem).animate({
@@ -28,6 +31,7 @@ function turnCSS(elem, src) {
             .unbind("transitionend webkittransitionend")
             .removeClass("flipping")
     })
+    return $.Deferred().resolve();
 }
 
 function turn(elem, src) {
@@ -45,9 +49,12 @@ function turn(elem, src) {
 //var front = "file:///C:/Users/qcard/udacity-course/Memory%20Game/img/"+this.id+".png";
 var back = "file:///C:/Users/qcard/udacity-course/Memory%20Game/img/back.png"
 $(".turnCSS").click(function () {
-    //console.log(this.src);
-    //console.log(src);
+    //console.log("this = "+this.src);
+    //console.log("back = "+back);
     //selects images based on ID number
+
+    if(this.textContent != 'flipped'){
+        //this.addClass("face");
     switch(this.id){
         case '1':
         case '2':
@@ -84,14 +91,77 @@ $(".turnCSS").click(function () {
     }
     //console.log("this.id= "+this.id);
     //console.log("front= "+ front);
-    var src = this.src == back ? front : back; //for toggling fun
+    //var src = this.src == back ? front : back; //for toggling fun
+    var src = front;
     //console.log(this.src);
-    compareCount++;
     movesCount++;
     //console.log(compareCount);
     moveText.textContent = "Move: " + movesCount;
     turnCSS(this, src)
+    cardstocompare[compareCount] = this;
+    cardstocompare[compareCount].src = src;
+    this.textContent='flipped';
+    compareCount++;
+    //setTimeout(doSomething, 3000);
+    if (compareCount ===2){
+        console.log("comparing")
+        //console.log(cardstocompare);
+        //console.log('card1 = ' + cardstocompare[0].currentSrc + "\ncard2 = "+ cardstocompare[1].currentSrc);
+        if (cardstocompare[0].src === cardstocompare[1].src){
+            console.log('cards match');
+            compareCount=0;
+        }
+        else{
+            console.log("cards don't match");
+            compareCount=0;
+            //sleep(3000);
+            //setTimeout(doSomething, 3000);
+            //while(!flipboolean)
+            //{
+            //    console.log('waiting');
+            //}
+            //functionOne().done(functionTwo);
+            //setTimeout(doSomething, 3000);
+            //$(this)
+            //.addClass("face")
+            setTimeout(wrongShaking, 1000);
+            //functionOne().done(functionTwo);
+            //cardstocompare[0].bind("transitionend webkittransitionend", function () { });//should add more prefixes
+            setTimeout(turnBack, 3000);
+            //turnCSS(cardstocompare[0], back);
+            //turnCSS(cardstocompare[1], back);
+        }
+    }
+}else{
+    console.log("card already flipped");
+}
 })
+function wrongShaking()
+{
+    $(cardstocompare[0])
+    .addClass("face")
+    $(cardstocompare[1])
+    .addClass("face")
+}
+function turnBack() {
+    $(cardstocompare[0])
+    .removeClass("face")
+    $(cardstocompare[1])
+    .removeClass("face")
+    cardstocompare[0].textContent='notflipped';
+    cardstocompare[1].textContent='notflipped';
+    turnCSS(cardstocompare[0], back);
+    turnCSS(cardstocompare[1], back);
+}
+
+ function sleep(milliseconds) {
+    var start = new Date().getTime();
+    for (var i = 0; i < 1e7; i++) {
+      if ((new Date().getTime() - start) > milliseconds){
+        break;
+      }
+    }
+  }
 /*
 $(".turnCompatible").click(function () {
     var src = this.src == back ? front : back; //for toggling fun
