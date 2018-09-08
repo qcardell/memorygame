@@ -222,6 +222,11 @@ body {
 .l1{
   font-size: 34px;
 }
+
+.fa-check-circle{
+  font-size:44px;
+  color:green;
+}
 /*
 .colums{
   width:100%;
