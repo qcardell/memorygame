@@ -110,6 +110,7 @@ $(".turnCSS").click(function () {
         if (cardstocompare[0].src === cardstocompare[1].src){
             console.log('cards match');
             compareCount=0;
+            setTimeout(rightanimation, 1000);
         }
         else{
             console.log("cards don't match");
@@ -136,6 +137,13 @@ $(".turnCSS").click(function () {
     console.log("card already flipped");
 }
 })
+
+function rightanimation(){
+    $(cardstocompare[0])
+    .addClass("element")
+    $(cardstocompare[1])
+    .addClass("element")
+}
 function wrongShaking()
 {
     $(cardstocompare[0])
