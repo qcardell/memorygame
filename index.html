@@ -19,27 +19,34 @@
   </head>
 
   <body class="text-center" onload="radFunction()">
-    <div class="cover-container d-flex w-100 h-100% p-3 mx-auto flex-column">
-      <header class="masthead mb-auto">
-        <div class="inner">
-          <div class="container">
-            <div class="row">
-              <div class='col-md-12'>
-                <h3 class="masthead-brand">Matching Game</h3>
-              </div>
-              <div class="col-md-6">
-                <p class="moveText">Moves</p>
-              </div>
-              <div class="col-md-6">
-                <p id="restart">Restart</p>
+    <div class="cover-container mx-auto">
+      <section class="score-panel">
+        <!--<header class="masthead mb-auto">
+          <div class="inner">-->
+            <div class="container">
+              <div class="row">
+                <div class='col-md-12'>
+                  <h1 class="header">Matching Game</h1>
+                </div>
+                <div class="col-md-6">
+                    <ul class="stars">
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                    </ul>
+                  <span class="moveText">Moves</span>
+                </div>
+                <div class="col-md-6">
+                    <i id='restart' class="fa fa-repeat"></i>
+                </div>
               </div>
             </div>
-          </div>
-      </header>
+        </header>
+      </section>
 
 
-      <main role="main" class="innercover deck">
-        <div class = 'container deck'>
+      <main role="main" class="innercover">
+        <div class = 'container'>
                   <!-- The Modal -->
           <div id="myModal" class="modal">
             <!-- Modal content -->
@@ -55,37 +62,38 @@
             </div>
           </div>
 
-          <div class="row">
-            <div class = 'col-md-3 colums'>
-              <img id=1 class="card turnCSS" src="file:///C:/Users/qcard/udacity-course/Memory%20Game/img/back.png" />
+          <div class='deck'>
+            <div class="row">
+              <div class = 'col-md-3 colums'>
+                <img id=1 class="card turnCSS" src="file:///C:/Users/qcard/udacity-course/Memory%20Game/img/back.png" />
+              </div>
+              <div class = 'col-md-3 colums'>
+                <img id=2 class="card turnCSS" src="file:///C:/Users/qcard/udacity-course/Memory%20Game/img/back.png" />
+              </div>
+              <div class = 'col-md-3 colums'>
+                <img id=3 class="card turnCSS" src="file:///C:/Users/qcard/udacity-course/Memory%20Game/img/back.png" />
+              </div>
+              <div class = 'col-md-3 colums'>
+                <img id=4 class="card turnCSS" src="file:///C:/Users/qcard/udacity-course/Memory%20Game/img/back.png" />
+              </div>
             </div>
-            <div class = 'col-md-3 colums'>
-              <img id=2 class="card turnCSS" src="file:///C:/Users/qcard/udacity-course/Memory%20Game/img/back.png" />
-            </div>
-            <div class = 'col-md-3 colums'>
-              <img id=3 class="card turnCSS" src="file:///C:/Users/qcard/udacity-course/Memory%20Game/img/back.png" />
-            </div>
-            <div class = 'col-md-3 colums'>
-              <img id=4 class="card turnCSS" src="file:///C:/Users/qcard/udacity-course/Memory%20Game/img/back.png" />
-            </div>
-          </div>
 
-          <div class="row">
-            <div class = 'col-md-3 colums'>
-              <img id=5 class="card turnCSS" src="file:///C:/Users/qcard/udacity-course/Memory%20Game/img/back.png" />
+            <div class="row">
+              <div class = 'col-md-3 colums'>
+                <img id=5 class="card turnCSS" src="file:///C:/Users/qcard/udacity-course/Memory%20Game/img/back.png" />
+              </div>
+              <div class = 'col-md-3 colums'>
+                <img id=6 class="card turnCSS" src="file:///C:/Users/qcard/udacity-course/Memory%20Game/img/back.png" />
+              </div>
+              <div class = 'col-md-3 colums'>
+                <img id=7 class="card turnCSS" src="file:///C:/Users/qcard/udacity-course/Memory%20Game/img/back.png" />
+              </div>
+              <div class = 'col-md-3 colums'>
+                <img id=8 class="card turnCSS" src="file:///C:/Users/qcard/udacity-course/Memory%20Game/img/back.png" />
+              </div>
             </div>
-            <div class = 'col-md-3 colums'>
-              <img id=6 class="card turnCSS" src="file:///C:/Users/qcard/udacity-course/Memory%20Game/img/back.png" />
-            </div>
-            <div class = 'col-md-3 colums'>
-              <img id=7 class="card turnCSS" src="file:///C:/Users/qcard/udacity-course/Memory%20Game/img/back.png" />
-            </div>
-            <div class = 'col-md-3 colums'>
-              <img id=8 class="card turnCSS" src="file:///C:/Users/qcard/udacity-course/Memory%20Game/img/back.png" />
-            </div>
-          </div>
 
-          <div class="row">
+            <div class="row">
               <div class = 'col-md-3 colums'>
                 <img id=9 class="card turnCSS" src="file:///C:/Users/qcard/udacity-course/Memory%20Game/img/back.png" />
               </div>
@@ -100,24 +108,24 @@
               </div>
             </div>
 
-              <div class="row">
-                  <div class = 'col-md-3 colums'>
-                        <img id=13 class="card turnCSS" src="file:///C:/Users/qcard/udacity-course/Memory%20Game/img/back.png" />
-                  </div>
-                  <div class = 'col-md-3 colums'>
-                        <img id=14 class="card turnCSS" src="file:///C:/Users/qcard/udacity-course/Memory%20Game/img/back.png" />
-                  </div>
-                  <div class = 'col-md-3 colums'>
-                        <img id=15 class="card turnCSS" src="file:///C:/Users/qcard/udacity-course/Memory%20Game/img/back.png" />
-                  </div>
-                  <div class = 'col-md-3 colums'>
-                    <div>
-                        <img id=16 class="card turnCSS" src="file:///C:/Users/qcard/udacity-course/Memory%20Game/img/back.png" />
-                    </div>
-                  </div>
+            <div class="row">
+              <div class = 'col-md-3 colums'>
+                <img id=13 class="card turnCSS" src="file:///C:/Users/qcard/udacity-course/Memory%20Game/img/back.png" />
               </div>
+              <div class = 'col-md-3 colums'>
+                <img id=14 class="card turnCSS" src="file:///C:/Users/qcard/udacity-course/Memory%20Game/img/back.png" />
+              </div>
+              <div class = 'col-md-3 colums'>
+                <img id=15 class="card turnCSS" src="file:///C:/Users/qcard/udacity-course/Memory%20Game/img/back.png" />
+              </div>
+              <div class = 'col-md-3 colums'>
+                <img id=16 class="card turnCSS" src="file:///C:/Users/qcard/udacity-course/Memory%20Game/img/back.png" />
+              </div>
+            </div>
+          </div>
         </div>
       </main>
+    </div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
