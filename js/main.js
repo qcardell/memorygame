@@ -246,11 +246,12 @@ function compareCards(){
             //setTimeout(doSomething, 3000);
             //$(this)
             //.addClass("face")
-            setTimeout(wrongShaking, 1000);
+            setTimeout(wrongShaking, 2000);
+            //setTimeout(rightanimation, 2000);
             //functionOne().done(functionTwo);
             //cardstocompare[0].bind("transitionend webkittransitionend", function () { });//should add more prefixes
             tb=false;
-            setTimeout(turnBack, 1500);
+            setTimeout(turnBack, 3000);
             //turnCSS(cardstocompare[0], back);
             //turnCSS(cardstocompare[1], back);
         }
@@ -263,21 +264,25 @@ function rightanimation(){
         .addClass("element")
     $(cardstocompare[1])
         .addClass("element")
+
 }
 function wrongShaking()
 {
+    console.log("shaking");
     $(cardstocompare[0])
     .addClass("face")
     $(cardstocompare[1])
     .addClass("face")
+    //turnBack();
 }
 function turnBack() {
+    console.log("turning to back");
     $(cardstocompare[0])
         .removeClass("face")
     $(cardstocompare[1])
         .removeClass("face")
-    cardstocompare[0].textContent='notflipped';
-    cardstocompare[1].textContent='notflipped';
+    cardstocompare[0].textContent='';
+    cardstocompare[1].textContent='';
     turnCSS(cardstocompare[0], back,dummpf);
     turnCSS(cardstocompare[1], back,dummpf);
     tb=true;
