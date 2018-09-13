@@ -116,7 +116,6 @@ $(".turnCSS").click(function () {
     console.log("thisID = "+this.id);
     //console.log("back = "+back);
     //selects images based on ID number
-
     if(this.textContent != 'flipped' && cardClick && tb){
         front = pickCardfront(this.id);
         console.log(front);
