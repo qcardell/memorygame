@@ -1,26 +1,4 @@
 /*
- * Globals
- */
-
-/* Links 
-a,
-a:focus,
-a:hover {
-  color: #fff;
-}
-*/
-/* Custom default button */
-/*.btn-secondary,
-.btn-secondary:hover,
-.btn-secondary:focus {
-  color: #333;
-  text-shadow: none;  Prevent inheritance from `body` 
-  background-color: #fff;
-  border: .05rem solid #fff;
-}
-*/
-
-/*
  * Base structure
  */
 
@@ -41,65 +19,18 @@ body {
 
 .cover-container {
   max-width: 680px;
-  /*max-height: 800px;*/
   max-height: 680px;
   width:100%;
 }
 
-
-/*
- * Header
- */
- /*
-
-.masthead {
-  margin-bottom: 2rem;
-}
-
-.masthead-brand {
-  margin-bottom: 0;
-  width:100%;
-  padding-bottom: 40px;
-}
-
-.nav-masthead .nav-link {
-  padding: .25rem 0;
-  font-weight: 700;
-  color: rgba(255, 255, 255, .5);
-  background-color: transparent;
-  border-bottom: .25rem solid transparent;
-}
-
-.nav-masthead .nav-link:hover,
-.nav-masthead .nav-link:focus {
-  border-bottom-color: rgba(255, 255, 255, .25);
-}
-
-.nav-masthead .nav-link + .nav-link {
-  margin-left: 1rem;
-}
-
-.nav-masthead .active {
-  color: #fff;
-  border-bottom-color: #fff;
-}
-@media (min-width: 48em) {
-  .masthead-brand {
-    float: left;
-  }
-  .nav-masthead {
-    float: right;
-  }
-}
-*/
-
 .innercover{
-  /*background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);*/
-  /*background-color: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);*/
   height: 100%;
   width:100%;
-  /*max-height: 480px;*/
 }
+
+/*
+*Score panel and Hearder
+*/
 
 .score-panel{
   padding-top:20px;
@@ -126,6 +57,10 @@ body {
   display: inline-block;
 }
 
+/*
+*Card and Deck
+*/
+
 .deck{
   width: 660px;
   min-height: 680px;
@@ -145,17 +80,12 @@ body {
 
 .card, .crd{
   box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
-  /*height:80%;
-  width:100%;*/
   height: 125px;
   width: 125px;
   -webkit-transition:-webkit-transform 0.5s;
   transition:transform 0.5s;
   background:#FFEB7A;
   background:#FF9D28;
-  /*background: #2e3d49;
-  font-size: 0;
-  color: #ffffff;*/
   border-radius: 8px;
   cursor: pointer;
   display: flex;
@@ -164,18 +94,21 @@ body {
   align-items: center;
 }
 
+/*
+*Flipping the card animation
+*/
+
 .flipping {
   transform: translate(0, 20px) rotateY(90deg);
   -webkit-transform: translate(0, 20px) rotateY(90deg);
 }
 
-/*.face:hover {*/
-.face{
+/*
+*When card don't match animation.
+*/
+
+.nomatch{
   animation: shake 0.5s; 
-  /*animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  perspective: 1000px;*/
 }
 
 @keyframes shake {
@@ -196,40 +129,30 @@ body {
   }
 }
 
+/*
+*when card match animation
+*/
+
 @keyframes stretch {
   0% {
     transform: scale(.3);
-    /*background-color: red;*/
     border-radius: 100%;
-  }
-  50% {
-    /*background-color: orange;/*
-  }
-  100% {
-    transform: scale(1.5);
-    /*background-color: yellow;*/
   }
 }
 
-.element {
-  /*height: 250px;
-  width: 250px;
-  margin: 0 auto;
-  background-color: red;*/
+.match {
   animation-name: stretch;
   animation-duration: .5s; 
   animation-timing-function: ease-in; 
   animation-delay: 0;
   animation-direction: alternate;
-  /*animation-iteration-count: infinite;*/
   animation-fill-mode: none;
   animation-play-state: running;
 }
 
-
-
-
-/* The Modal (background) */
+/*
+*The Modal (background) 
+*/
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -244,7 +167,9 @@ body {
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-/* Modal Content */
+/*
+*Modal Content 
+*/
 .modal-content {
   background-color: #fefefe;
   margin: auto;
@@ -254,7 +179,9 @@ body {
   height:85%;
 }
 
-/* The Close Button */
+/*
+*The Close Button 
+*/
 .close {
   color: #aaaaaa;
   float: right;
@@ -280,28 +207,3 @@ body {
   font-size:44px;
   color:green;
 }
-/*
-.colums{
-  width:100%;
-  height:100%;
-  min-height: 100px;
-}
-
- * Cover
- 
-.cover {
-  padding: 0 1.5rem;
-}
-.cover .btn-lg {
-  padding: .75rem 1.25rem;
-  font-weight: 700;
-}
-
-*/
-/*
- * Footer
- 
-.mastfoot {
-  color: rgba(255, 255, 255, .5);
-}
-<img class="card turnCSS" src="file:///C:/Users/qcard/udacity-course/Memory%20Game/img/back.png" />

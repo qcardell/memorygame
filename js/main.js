@@ -42,8 +42,8 @@ function resetBoard(){
         //console.log(i);
         cards[i].textContent="";
         $(cards[i])
-            .removeClass("element")
-            .removeClass("face");
+            .removeClass("match")
+            .removeClass("nomatch");
     }
     moveText.textContent = "Move: " + movesCount;
     radFunction();
@@ -261,26 +261,26 @@ function compareCards(){
 function rightanimation(){
     console.log("right animiation");
     $(cardstocompare[0])
-        .addClass("element")
+        .addClass("match")
     $(cardstocompare[1])
-        .addClass("element")
+        .addClass("match")
 
 }
 function wrongShaking()
 {
     console.log("shaking");
     $(cardstocompare[0])
-    .addClass("face")
+    .addClass("nomatch")
     $(cardstocompare[1])
-    .addClass("face")
+    .addClass("nomatch")
     //turnBack();
 }
 function turnBack() {
     console.log("turning to back");
     $(cardstocompare[0])
-        .removeClass("face")
+        .removeClass("nomatch")
     $(cardstocompare[1])
-        .removeClass("face")
+        .removeClass("nomatch")
     cardstocompare[0].textContent='';
     cardstocompare[1].textContent='';
     turnCSS(cardstocompare[0], back,dummpf);
