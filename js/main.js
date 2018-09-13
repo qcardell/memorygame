@@ -78,7 +78,7 @@ function openmodal()
     modalText[2].textContent = "Woooooooo!";
     modal.style.display = "block";
 }
-
+/*
 function turnCompatible(elem, src) {
     $(elem).animate({
         width: 0,
@@ -93,7 +93,7 @@ function turnCompatible(elem, src) {
         })
     })
 }
-
+*/
 function turnCSS(elem, src, callback) {
     $(elem)
         .addClass("flipping")
@@ -105,7 +105,7 @@ function turnCSS(elem, src, callback) {
     })
     callback();
 }
-
+/*
 function turn(elem, src) {
     if (
     elem.style.transition === "undefined" && //should add more prefixes
@@ -115,7 +115,7 @@ function turn(elem, src) {
         turnCSS(elem, src)
     }
 }
-
+*/
 var back = "file:///C:/Users/qcard/udacity-course/Memory%20Game/img/back3.png"
 $(".turnCSS").click(function () {
     if(this.textContent != 'flipped' && cardClick && tb){
@@ -248,6 +248,6 @@ function radFunction(){
         //$(function() {
         for(var i=0;i<testArray.length;i++) {
             cards[i].id=testArray[i];
-            console.log(testArray[i]);
+            //console.log(testArray[i]);
         }
 }
