@@ -27,15 +27,16 @@ a:hover {
 html,
 body {
   height: 100%;
-  background-color: #333;
 }
 
 body {
   display: -ms-flexbox;
   display: flex;
-  color: #fff;
+  color: black;
+  background-color: white;
   text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
   box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+  
 }
 
 .cover-container {
@@ -91,6 +92,7 @@ body {
   }
 }
 */
+
 .innercover{
   /*background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);*/
   /*background-color: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);*/
@@ -98,21 +100,27 @@ body {
   width:100%;
   /*max-height: 480px;*/
 }
+
 .score-panel{
   padding-top:20px;
 }
+
 .header{
   padding-bottom: 40px;
 }
+
 .score-panel .stars {
   margin: 0;
   padding: 0;
   display: inline-block;
   margin: 0 5px 0 0;
 }
+
 #restart{
   padding-bottom: 20px;
+  cursor: pointer;
 }
+
 .score-panel .stars li {
   list-style: none;
   display: inline-block;
@@ -122,6 +130,9 @@ body {
   width: 660px;
   min-height: 680px;
   background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+  background-image: url('../img/background1.jpg');
+  background-repeat: no-repeat;
+  background-size:cover;
   padding: 32px;
   border-radius: 10px;
   box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
@@ -132,7 +143,7 @@ body {
   margin: 0 0 3em;
 }
 
-.card {
+.card, .crd{
   box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
   /*height:80%;
   width:100%;*/
@@ -140,13 +151,19 @@ body {
   width: 125px;
   -webkit-transition:-webkit-transform 0.5s;
   transition:transform 0.5s;
-  background:black;
+  background:#FFEB7A;
+  background:#FF9D28;
   /*background: #2e3d49;
-  font-size: 0;*/
-  color: #ffffff;
+  font-size: 0;
+  color: #ffffff;*/
   border-radius: 8px;
   cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
 }
+
 .flipping {
   transform: translate(0, 20px) rotateY(90deg);
   -webkit-transform: translate(0, 20px) rotateY(90deg);
@@ -233,8 +250,8 @@ body {
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 69%;
-  height:70%;
+  width: 59%;
+  height:85%;
 }
 
 /* The Close Button */

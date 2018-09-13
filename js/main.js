@@ -111,7 +111,7 @@ function turn(elem, src) {
 
 //var front = "file:///C:/Users/qcard/udacity-course/Memory%20Game/img/front.png"
 //var front = "file:///C:/Users/qcard/udacity-course/Memory%20Game/img/"+this.id+".png";
-var back = "file:///C:/Users/qcard/udacity-course/Memory%20Game/img/back.png"
+var back = "file:///C:/Users/qcard/udacity-course/Memory%20Game/img/back3.png"
 $(".turnCSS").click(function () {
     console.log("thisID = "+this.id);
     //console.log("back = "+back);
@@ -246,12 +246,12 @@ function compareCards(){
             //setTimeout(doSomething, 3000);
             //$(this)
             //.addClass("face")
-            setTimeout(wrongShaking, 2000);
+            setTimeout(wrongShaking, 1100);
             //setTimeout(rightanimation, 2000);
             //functionOne().done(functionTwo);
             //cardstocompare[0].bind("transitionend webkittransitionend", function () { });//should add more prefixes
             tb=false;
-            setTimeout(turnBack, 3000);
+            setTimeout(turnBack, 2000);
             //turnCSS(cardstocompare[0], back);
             //turnCSS(cardstocompare[1], back);
         }
