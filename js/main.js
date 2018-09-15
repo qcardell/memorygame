@@ -1,4 +1,4 @@
-var CARDWIDTH = 50;
+//var CARDWIDTH = 50;
 var compareCount=0;
 var movesCount = 0;
 var numberofStars=3;
@@ -133,7 +133,7 @@ $(".turnCSS").click(function () {
             stars[numberofStars].className = "fa fa-star-o";
         }
         toggleclick();
-        turnCSS(this, src, compareCards);
+        turnCSS(this, front, compareCards);
     }else{
         //console.log("card already flipped "+cardClick+" "+tb);
     }
