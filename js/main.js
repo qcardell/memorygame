@@ -116,7 +116,7 @@ function turn(elem, src) {
     }
 }
 */
-var back = "file:///C:/Users/qcard/udacity-course/Memory%20Game/img/back3.png"
+var back = "img/back3.png"
 $(".turnCSS").click(function () {
     if(this.textContent != 'flipped' && cardClick && tb){
         front = pickCardfront(this.id);
@@ -200,35 +200,35 @@ function pickCardfront(id){
     switch(id){
         case '1':
         case '2':
-        front = "file:///C:/Users/qcard/udacity-course/Memory%20Game/img/1.png";
+        front = "img/1.png";
         break;
         case '3':
         case '4':
-        front = "file:///C:/Users/qcard/udacity-course/Memory%20Game/img/2.png";
+        front = "img/2.png";
         break;
         case '5':
         case '6':
-        front = "file:///C:/Users/qcard/udacity-course/Memory%20Game/img/3.png";
+        front = "img/3.png";
         break;
         case '7':
         case '8':
-        front = "file:///C:/Users/qcard/udacity-course/Memory%20Game/img/4.png";
+        front = "img/4.png";
         break;
         case '9':
         case '10':
-        front = "file:///C:/Users/qcard/udacity-course/Memory%20Game/img/5.png";
+        front = "img/5.png";
         break;
         case '11':
         case '12':
-        front = "file:///C:/Users/qcard/udacity-course/Memory%20Game/img/6.png";
+        front = "img/6.png";
         break;
         case '13':
         case '14':
-        front = "file:///C:/Users/qcard/udacity-course/Memory%20Game/img/7.png";
+        front = "img/7.png";
         break;
         case '15':
         case '16':
-        front = "file:///C:/Users/qcard/udacity-course/Memory%20Game/img/8.png";
+        front = "img/8.png";
         break;
     }
 
