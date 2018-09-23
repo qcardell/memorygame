@@ -10,6 +10,13 @@ var numberofMatches = 0;
 var cardClick=true;
 var resetbutton = document.getElementById('restart');
 var tb = true;
+var starTimer = 0;
+var EndTimer = 0;
+var gameOver = false;
+var timer=0;
+var timerHTML = document.getElementsByClassName("timer")[0];
+
+
 
 
 resetbutton.onclick = function(){
@@ -37,8 +44,12 @@ btn.onclick = function() {
 }
 
 function resetBoard(){
+    gameOver = false;
+    timer=0;
+    timerHTML.textContent=timer;
     movesCount=0;
     numberofMatches=0;
+    compareCount = 0;
     var cards = document.querySelectorAll('.card');
     //console.log(cards);
     for(var i=0;i<cards.length;i++){
@@ -60,23 +71,45 @@ function resetBoard(){
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
     modal.style.display = "none";
+    resetBoard();
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
+        resetBoard();
+
     }
 }
 
 function openmodal()
 {
+    //starTimer = new Date();
+    //var date1 = new Date(2000, 0, 1,  9, 01); // 9:00 AM
+    //var date2 = new Date(2000, 0, 1, 17, 0); // 5:00 PM
     var modalText=document.querySelectorAll('.modaltext');
     //console.log(modalText);
+    //EndTimer = new Date();
+    //var h = EndTimer.getHours() - starTimer.getHours();
+    //var m = EndTimer.getMinutes()-starTimer.getMinutes();
+    //var s = EndTimer.getSeconds()-starTimer.getSeconds();
+    //h2 = EndTimer - starTimer;
+    //var msec = h2;
+    //var hh = Math.floor(msec / 1000 / 60 / 60);
+    //msec -= hh * 1000 * 60 * 60;
+    //var mm = Math.floor(msec / 1000 / 60);
+    //msec -= mm * 1000 * 60;
+    //var ss = Math.floor(msec / 1000);
+    //msec -= ss * 1000;
+    // diff = 28800000 => hh = 8, mm = 0, ss = 0, msec = 0
     modalText[0].textContent = "Congratulations! You Won!";
     modalText[1].textContent = "With "+movesCount + " Moves and "+ numberofStars +" Stars";
-    modalText[2].textContent = "Woooooooo!";
+    //modalText[2].textContent = "You completed the Game in : "+ hh + " Hours " + mm + " Minutes " + timer + " Seconds";
+    modalText[2].textContent = "You completed the Game in : "+timer + " Seconds";
+    modalText[3].textContent = "Woooooooo!";
     modal.style.display = "block";
+    //console.log(hh+":"+mm+":"+ss);
 }
 /*
 function turnCompatible(elem, src) {
@@ -94,6 +127,16 @@ function turnCompatible(elem, src) {
     })
 }
 */
+
+function updateTimer(){
+    timer++;
+    timerHTML.textContent=timer;
+    //console.log(timer);
+    if(!gameOver){
+        setTimeout(updateTimer,1000);
+    }
+
+}
 function turnCSS(elem, src, callback) {
     $(elem)
         .addClass("flipping")
@@ -118,6 +161,12 @@ function turn(elem, src) {
 */
 var back = "img/back3.png"
 $(".turnCSS").click(function () {
+    if(timer ===0){
+        console.log("start Timer");
+        updateTimer();
+    }
+    //openmodal();
+
     if(this.textContent != 'flipped' && cardClick && tb){
         front = pickCardfront(this.id);
         //console.log(front);
@@ -139,6 +188,9 @@ $(".turnCSS").click(function () {
     }
 
     if(numberofMatches===8){
+        //EndTimer = new Date();
+        //console.log(EndTimer);
+        gameOver = true;
         setTimeout(openmodal,2000);
     }
 })
