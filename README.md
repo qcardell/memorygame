@@ -1,10 +1,1 @@
-# Memory Game
-
-Project:  Memory Game
-
-Instructions:
-The Memory Game Project is all about demonstrating your mastery of JavaScript. 
-You’ll build a complete browser-based card matching game (also known as Concentration). 
-But this isn’t just any memory game! It’s a shnazzy, well-designed, feature-packed memory game!
-
-This is my version of the memory game using HTML, CSS, and java script.  
+﻿#Memory GameComplete web-based card matching game (also known as Concentration). It a well-designed, feature-packed memory game!  See how fast you can Match all of the cards, and then try and beat your best.#Getting StartedComplete Web base game no installing required.  Just load, play and enjoy.#Built With- bootstrap - Toolkit used for the HTML, CSS, and JavaScript- JavaScript - Computer programming language used for the interactive effects within the brower.- fontawsome - Used to generate the vector icons with only using Font #VersioningVersion 2#AuthorsQuinnton Cato - Initial work#AcknowledgmentsCard animation Templates:- [CSS-Tricks](https://css-tricks.com/almanac/properties/a/animation/)- [jsfiddle.net](http://jsfiddle.net/fZ9kM/)
