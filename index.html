@@ -18,55 +18,145 @@
     <link href="css/style.css" rel="stylesheet">
   </head>
 
-  <body class="text-center" onload="radFunction()">
-    <div class="cover-container mx-auto">
+  <body class="text-center" >
+    <div class="cover-container mx-auto ">
       <section class="score-panel">
         <!--<header class="masthead mb-auto">
           <div class="inner">-->
-            <div class="container">
+            <div class="container ">
               <div class="row">
                 <div class='col-md-12'>
-                  <h1 class="header">Matching Game</h1>
+                  <h1 class="header gradient-text">Matching Game</h1>
                 </div>
-                <div class="col-md-4">
-                    <ul class="stars">
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                    </ul>
-                  <span class="moveText">Moves</span>
-                </div>
-                <div class="col-md-4">
-                  <h1 class="timer">0</h1>
-                </div>
-                <div class="col-md-4">
-                    <i id='restart' class="fa fa-repeat"></i>
-                </div>
+                <div class="row flex-container">
+                  <div class="col-md-5 center flex-item">
+                      <ul class="stars">
+                          <li><i class="fa fa-star"></i></li>
+                          <li><i class="fa fa-star"></i></li>
+                          <li><i class="fa fa-star"></i></li>
+                      </ul>
+                    <span class="moveText gradient-text">Moves</span>
+                  </div>
+                  <div class="col-md-1 center flex-item">
+                    <h1 class="timer">0</h1>
+                  </div>
+                  <div class="col-md-1 center flex-item">
+                      <i id='restart' class="fa fa-repeat"></i>
+                  </div>
+                  <div class="col-md-5 center flex-item">
+                    <!-- Button to Open the Modal --> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mylevelModal" id="Modal_button"> Level </button> <!-- The Modal -->
+                  </div>
+              </div>
+
               </div>
             </div>
       </section>
+      
+  <main role="main" class="innercover parent">
 
+    <div class="modal fade" id="mylevelModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header"> <button type="button" class="close" data-dismiss="modal">&times;</button> </div> <!-- Modal body -->
+                <div class="modal-body mb-0 pb-0 mt-0">
+                    <div class="container ">
+                        <!-- custom radio button -->
+                        <div class="holder">
+                            <div class="row mb-1">
+                                <div class="col">
+                                    <h2>Choose Level</h2>
+                                </div>
+                            </div>
+                            <form action="#" class="customRadio customCheckbox m-0 p-0">
+                                <div class="row mb-0">
+                                    <div class="row justify-content-start">
+                                        <div class="col-12">
+                                            <div class="row"> <input type="radio" name="textEditor" id="LEVEL1" checked> <label for="LEVEL1">Level 1</label> </div>
+                                            <div class="row"> <input type="radio" name="textEditor" id="LEVEL2"> <label for="LEVEL2">Level 2</label> </div>
+                                            <div class="row"> <input type="radio" name="textEditor" id="LEVEL3"> <label for="LEVEL3">Level 3</label> </div>
+                                          </div>
+                                    </div>
+                                </div>
+                                <!--
+                                <div class="row mt-0 ml-4">
+                                    <div class="col-12 my_checkbox ">
+                                        <div class="row"> <input type="checkbox" id="screenshots" checked> <label for="javascript" id="screenshots_label">Back up screenshots</label> </div>
+                                        <div class="row"> <input type="checkbox" id="RAW"> <label for="RAW">Back up RAW files</label> </div>
+                                        <div class="row"> <input type="checkbox" id="Library"> <label for="Library">Back up Photos Library metadata</label> </div>
+                                    </div>
+                                </div>-->
+                                <!--
+                                <div class="row mt-4">
+                                    <div class="col-12 Advanced_setting">-->
+                                        <!-- <b> <a class="Advanced_setting" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"> Advanced setting &nbsp;<i class="icon-action fa fa-chevron-down"></i> </a></b> --> <!--Advanced Setting &nbsp;<i class="icon-action fa fa-chevron-down"></i> </div>
+                                </div>-->
+                            </form>
+                        </div>
+                    </div>
+                </div> <!-- Modal footer -->
+                <div class="modal-footer pt-0 mt-0 pb-5 pr-6 m-1 ">
+                    <div class="col-2"> </div>
+                    <!--
+                    <div class="col-6 justify-content-start"> <a href="#" id="modal_footer_support" data-toggle="popover" title="Support" data-content="Support Message" class="modal_footer"><i class="fa fa-question-circle-o modal_footer" aria-hidden="true"></i> <span class="modal_footer">Support</span> </a> </div>
+                    -->
+                    <div class="col-2 justify-content-end ">
+                        <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button> --> <button type="button" class="btn btn-outline-light modal_footer" data-dismiss="modal">Cancel</button> </div>
+                    <div class="col-2 justify-content-start m-0 p-0"> <button type="button" class="btn btn-success box-shadow--16dp" onclick="chooselevel()" data-dismiss="modal">Start</button> </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-      <main role="main" class="innercover">
-        <div class = 'container'>
-                  <!-- The Modal -->
-          <div id="myModal" class="modal">
+    <div class = 'container'>
+              <!-- The Modal -->
+      <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class='row modal-content'>
+          <div class='col-md-12 '>
+            <span class="close">&times;</span>
+            <i class="fa fa-check-circle"></i>
+            <p class='l1 modaltext'>Some text in the Modal..</p>
+            <p class='modaltext'>Some text in the Modal..</p>
+            <p class='modaltext'>Some text in the Modal..</p>     
+            <p class='modaltext'>Some text in the Modal..</p>  
+            <button id='myBtn'>Play Again</button>   
+          </div>
+        </div>
+      </div>
+          <div id="mystartModal" class="modal">
             <!-- Modal content -->
             <div class='row modal-content'>
               <div class='col-md-12 '>
                 <span class="close">&times;</span>
-                <i class="fa fa-check-circle"></i>
-                <p class='l1 modaltext'>Some text in the Modal..</p>
-                <p class='modaltext'>Some text in the Modal..</p>
-                <p class='modaltext'>Some text in the Modal..</p>     
-                <p class='modaltext'>Some text in the Modal..</p>  
-                <button id='myBtn'>Play Again</button>   
+                <p class='l1 modalstarttext'>Some text in the Modal..</p>
+                <p class='modalstarttext'>Some text in the Modal..</p>
+                <form action="#" class="customRadio customCheckbox m-0 p-0">
+                  <div class="row mb-0">
+                      <div class="row justify-content-start">
+                        <!--
+                          <div class="col-12">
+                              <div class="row"> <input type="radio" name="textEditor" id="level1" checked> <label for="level1">Level 1</label> </div>
+                              <div class="row"> <input type="radio" name="textEditor" id="level2"> <label for="level2">Level 2</label> </div>
+                              <div class="row"> <input type="radio" name="textEditor" id="level3"> <label for="level3">Level 3</label> </div>
+                            </div>-->
+                      </div>
+                  </div>
+              </form>
+              <div class="modal-footer pt-0 mt-0 pb-5 pr-6 m-1 ">
+                <div class="col-2"> </div>
+                <div class="col-2 justify-content-end ">
+                <div class="col-2 justify-content-start m-0 p-0"> <button type="button" class="btn btn-success box-shadow--16dp" data-dismiss="modal">Start</button> </div>
+              </div>
               </div>
             </div>
           </div>
+        </div>
 
-          <div class='deck'>
-            <div class="row">
+       
+
+          <div class='deck '>
+            <div class="row cardrow" id="row1">
               <div class = 'col-md-3 colums'>
                 <img id=1 class="card turnCSS" src="img/back3.png" />
               </div>
@@ -81,7 +171,7 @@
               </div>
             </div>
 
-            <div class="row">
+            <div class="row cardrow" id="row1">
               <div class = 'col-md-3 colums'>
                 <img id=5 class="card turnCSS" src="img/back3.png" />
               </div>
@@ -96,7 +186,7 @@
               </div>
             </div>
 
-            <div class="row">
+            <div class="row cardrow" id="row1">
               <div class = 'col-md-3 colums'>
                 <img id=9 class="card turnCSS" src="img/back3.png" />
               </div>
@@ -111,7 +201,7 @@
               </div>
             </div>
 
-            <div class="row">
+            <div class="row cardrow" id="row1">
               <div class = 'col-md-3 colums'>
                 <img id=13 class="card turnCSS" src="img/back3.png" />
               </div>

@@ -1,7 +1,7 @@
 /*
  * Base structure
  */
-
+ 
 html,
 body {
   height: 100%;
@@ -15,14 +15,14 @@ body {
   background-color: white;
   background-repeat: no-repeat;
   background-size:cover;
-  text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+  /*text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);*/
   box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
   
 }
 
 .cover-container {
   max-width: 680px;
-  max-height: 680px;
+  max-height: 192px;
   width:100%;
 }
 
@@ -64,9 +64,32 @@ body {
 *Card and Deck
 */
 
+
+.flex-container {
+  /* We first create a flex layout context */
+  display: flex;
+  
+  /* Then we define the flow direction 
+     and if we allow the items to wrap 
+   * Remember this is the same as:
+   * flex-direction: row;
+   * flex-wrap: wrap;
+   */
+  flex-flow: row wrap;
+  
+  /* Then we define how is distributed the remaining space */
+  justify-content: space-around;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+
+
 .deck{
-  width: 660px;
-  min-height: 680px;
+  width: 100%;
+  min-height: 180px;
   background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
   background-image: url('../img/background1.jpg');
   background-repeat: no-repeat;
@@ -75,12 +98,130 @@ body {
   border-radius: 10px;
   box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
   display: flex;
+  flex-flow: row wrap;
+  
+  /* Then we define how is distributed the remaining space */
+  justify-content: space-around;
+  
+  padding: 0;
+  margin: 0 0 3em;
+  list-style: none;
+  /*
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   margin: 0 0 3em;
+  */
 }
 
+.gradient-text {
+  /* Fallback: Set a background color. */
+  background-color: #f3ec78;
+  
+  /* Create the gradient. */
+  background-image: linear-gradient(45deg, #f3ec78, #af4261);
+  
+  /* Set the background size and repeat properties. */
+  background-size: 100%;
+  background-repeat: repeat;
+
+  /* Use the text as a mask for the background. */
+  /* This will show the gradient as a text color rather than element bg. */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+
+.gradient-text {
+  /* Fallback: Set a background color. */
+  background-color: #CA4246;
+  
+  /* Create the gradient. */
+   background-image: linear-gradient(
+        45deg,
+        #CA4246 16.666%, 
+        #E16541 16.666%, 
+        #E16541 33.333%, 
+        #F18F43 33.333%, 
+        #F18F43 50%, 
+        #8B9862 50%, 
+        #8B9862 66.666%, 
+        #476098 66.666%, 
+        #476098 83.333%, 
+        #A7489B 83.333%);
+  
+  /* Set the background size and repeat properties. */
+  background-size: 100%;
+  background-repeat: repeat;
+
+  /* Use the text as a mask for the background. */
+  /* This will show the gradient as a text color rather than element bg. */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  
+  /* Animate the text when loading the element. */
+    /* This animates it on page load and when hovering out. */
+    animation: rainbow-text-simple-animation-rev 0.75s ease forwards;
+
+}
+
+.gradient-text:hover{
+    animation: rainbow-text-simple-animation 0.5s ease-in forwards;
+}
+
+
+/* Move the background and make it smaller. */
+/* Animation shown when entering the page and after the hover animation. */
+@keyframes rainbow-text-simple-animation-rev {
+    0% {
+        background-size: 650%;
+    }
+    40% {
+        background-size: 650%;
+    }
+    100% {
+        background-size: 100%;
+    }
+}
+
+/* Move the background and make it larger. */
+/* Animation shown when hovering over the text. */
+@keyframes rainbow-text-simple-animation {
+    0% {
+        background-size: 100%;
+    }
+    80% {
+        background-size: 650%;
+    }
+    100% {
+        background-size: 650%;
+    }
+}
+
+
+
+h1 {
+  font-family: "Archivo Black", sans-serif;
+  font-weight: bold;
+  /*font-size: 6em;*/
+  text-align: center;
+  margin-bottom: 0;
+  margin-bottom: -0.25em;
+}
+
+.flex-item {
+  /*background: tomato;*/
+  padding: 5px;
+  width: 80px;
+  /*height: 150px;*/
+  margin-top: 10px;
+  /*line-height: 150px;*/
+  color: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+  font-weight: bold;
+  /*font-size: 3em;*/
+  text-align: center;
+}
 .card, .crd{
   box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
   height: 125px;
@@ -91,10 +232,7 @@ body {
   background:#FF9D28;
   border-radius: 8px;
   cursor: pointer;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
+  margin-top: 10px;
 }
 
 /*
@@ -155,24 +293,24 @@ body {
 
 /*
 *The Modal (background) 
-*/
+
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  display: none; /* Hidden by default 
+  position: fixed; /* Stay in place 
+  z-index: 1; /* Sit on top 
+  padding-top: 100px; /* Location of the box 
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  width: 100%; /* Full width 
+  height: 100%; /* Full height 
+  overflow: auto; /* Enable scroll if needed 
+  background-color: rgb(0,0,0); /* Fallback color 
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity o
 }
-
+*/
 /*
 *Modal Content 
-*/
+
 .modal-content {
   background-color: #fefefe;
   margin: auto;
@@ -181,7 +319,7 @@ body {
   width: 46%;
   height:85%;
 }
-
+*/
 /*
 *The Close Button 
 */
@@ -209,4 +347,294 @@ body {
 .fa-check-circle{
   font-size:44px;
   color:green;
+}
+
+#Modal_button {
+  /*margin-top: 200px;*/
+  position: relative;
+  width: 20%;
+  border: none
+}
+
+.holder {
+  padding: 0 0 30px;
+  margin: 0 0 30px
+}
+
+.row {
+  margin: 0 0 10px
+}*/
+
+
+
+
+
+
+
+
+
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+b,
+u,
+i,
+center,
+form,
+label {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline
+}
+
+html {
+    box-sizing: border-box
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit
+}
+
+* {
+    max-height: 1000000px;
+    margin: 0;
+    padding: 0
+}
+
+body {
+    line-height: 1;
+    font: 300 18px/1.5 'Roboto', sans-serif;
+    color: #311B92;
+    background-color: #673Ab7
+}
+
+#Modal_button {
+  /*margin-top: 200px;*/
+  position: relative;
+  width: 30%;
+  border: none
+}
+
+.holder {
+  padding: 0 0 30px;
+  margin: 0 0 30px
+}
+
+.row {
+  margin: 0 0 10px
+}
+
+h2 {
+  font-weight: 500;
+  font-size: 30px;
+  margin: 0 0 20px
+}
+
+.customRadio input[type="radio"] {
+  position: absolute;
+  left: -9999px
+}
+
+.customRadio input[type="radio"]+label {
+  position: relative;
+  padding: 3px 0 0 40px;
+  cursor: pointer
+}
+
+.customRadio input[type="radio"]+label:before {
+  content: '';
+  background: #fff;
+  border: 2px solid #311B92;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0
+}
+
+.customRadio input[type="radio"]+label:after {
+  content: '';
+  background: #311B92;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  opacity: 0;
+  transform: scale(2);
+  transition: transform 0.3s linear, opacity 0.3s linear
+}
+
+.customRadio input[type="radio"]:checked+label:after {
+  opacity: 1;
+  transform: scale(1)
+}
+/*
+.customCheckbox input[type="checkbox"] {
+  position: absolute;
+  left: -9999px
+}
+
+.customCheckbox input[type="checkbox"]+label {
+  position: relative;
+  padding: 3px 0 0 40px;
+  cursor: pointer;
+  color: rgb(120, 119, 121)
+}
+
+.customCheckbox input[type="checkbox"]+label:before {
+  content: '';
+  background: #fff;
+  border: 2px solid #ccc;
+  border-radius: 3px;
+  height: 25px;
+  width: 25px;
+  position: absolute;
+  top: 0;
+  left: 0
+}
+
+.customCheckbox input[type="checkbox"]+label:after {
+  content: '';
+  border-style: solid;
+  border-width: 0 0 2px 2px;
+  border-color: transparent transparent #311B92 #311B92;
+  width: 15px;
+  height: 8px;
+  position: absolute;
+  top: 6px;
+  left: 5px;
+  opacity: 0;
+  transform: scale(2) rotate(-45deg);
+  transition: transform 0.3s linear, opacity 0.3s linear
+}
+
+.customCheckbox input[type="checkbox"]:checked+label:after {
+  opacity: 1;
+  transform: scale(1) rotate(-45deg);
+  color: #311B92
+}
+
+.Advanced_setting {
+  text-decoration: none;
+  color: #1565C0;
+  letter-spacing: 1px;
+  font-weight: bolder
+}
+*/
+.modal-title {
+  font-weight: bold !important
+}
+
+.modal-header,
+.modal-footer {
+  border-bottom: 0;
+  border-top: 0;
+  max-width: 600px !important;
+  position: relative
+}
+/*
+.my_checkbox {
+  margin-left: 3%
+}
+*/
+.model-content {
+  width: 840px;
+  width: 100% !important
+}
+
+.modal-footer {
+  max-width: 600px !important;
+  position: relative
+}
+
+.modal-footer>:not(:last-child) {
+  margin-right: 2rem
+}
+
+.modal-footer>:not(:first-child) {
+  margin-left: 0.5rem
+}
+
+.modal-dialog {
+  position: relative;
+  width: auto;
+  margin: 0 auto;
+  max-width: 600px
+}
+
+.box-shadow--16dp {
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, .14), 0 6px 30px 5px rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 0, 0, .2)
+}
+/*
+@media only screen and (max-width: 780px) {
+  .my_checkbox {
+      margin-left: 7%
+  }
+
+  .modal-dialog {
+      position: relative
+  }
+}
+*/
+.container button focus {
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  border: none;
+  outline-width: 0
+}
+
+@media only screen and (max-width: 580px) {
+  .modal-dialog {
+      position: relative
+  }
+
+  .my_checkbox {
+      margin-left: 6%
+  }
+}
+
+.btn-outline-light {
+  color: #BDBDBD
+}
+
+#modal_footer {
+  color: #BDBDBD;
+  cursor: pointer;
+  background: #fff
+}
+
+#modal_footer_support {
+  color: #BDBDBD;
+  width: 100%
+}
+
+.btn-success {
+  background-color: #311B92 !important;
+  border-radius: 8px;
+  padding-right: 35px;
+  padding-left: 35px
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  /*border: 3px solid green;*/
+  padding: 10px;
 }

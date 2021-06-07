@@ -9,6 +9,7 @@ var flipboolean = false;
 var numberofMatches = 0;
 var cardClick=true;
 var resetbutton = document.getElementById('restart');
+var modalbutton = document.getElementById('Modal_button');
 var tb = true;
 var starTimer = 0;
 var EndTimer = 0;
@@ -18,15 +19,22 @@ var timerHTML = document.getElementsByClassName("timer")[0];
 
 
 
-
 resetbutton.onclick = function(){
+    gameOver = true;
     resetBoard();
+}
+
+modalbutton.onclick = function(){
+    gameOver = true;
 }
 // Get Stars
 var stars = document.querySelectorAll('.fa-star');
-
+var cardrow = document.getElementsByClassName("cardrow");
 // Get the modal
 var modal = document.getElementById('myModal');
+var modallevel = document.getElementById('mylevelModal');
+var level;
+var matchtowin;
 
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
@@ -39,12 +47,20 @@ btn.onclick = function() {
     //modal.style.display = "block";
     console.log('playing again');
     modal.style.display = "none";
-    resetBoard();
-
+    //resetBoard();
 }
 
+window.addEventListener("load", function(){
+    openstartmodal();
+});
+document.addEventListener("DOMContentLoaded", function(){
+    
+
+});
+
 function resetBoard(){
-    gameOver = false;
+    console.log(level);
+    //gameOver = false;
     timer=0;
     timerHTML.textContent=timer;
     movesCount=0;
@@ -64,52 +80,42 @@ function resetBoard(){
     stars[1].className = "fa fa-star";
     moveText.textContent = "Move: " + movesCount;
     numberofStars=3;
-    radFunction();
-    //console.log('reset complete');
+    radFunction(level);
+    console.log('reset complete');
 }
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
     modal.style.display = "none";
-    resetBoard();
+    //resetBoard();
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {
-        modal.style.display = "none";
-        resetBoard();
+        //modal.style.display = "none";
+        //resetBoard();
 
     }
+    
 }
 
 function openmodal()
 {
-    //starTimer = new Date();
-    //var date1 = new Date(2000, 0, 1,  9, 01); // 9:00 AM
-    //var date2 = new Date(2000, 0, 1, 17, 0); // 5:00 PM
     var modalText=document.querySelectorAll('.modaltext');
-    //console.log(modalText);
-    //EndTimer = new Date();
-    //var h = EndTimer.getHours() - starTimer.getHours();
-    //var m = EndTimer.getMinutes()-starTimer.getMinutes();
-    //var s = EndTimer.getSeconds()-starTimer.getSeconds();
-    //h2 = EndTimer - starTimer;
-    //var msec = h2;
-    //var hh = Math.floor(msec / 1000 / 60 / 60);
-    //msec -= hh * 1000 * 60 * 60;
-    //var mm = Math.floor(msec / 1000 / 60);
-    //msec -= mm * 1000 * 60;
-    //var ss = Math.floor(msec / 1000);
-    //msec -= ss * 1000;
-    // diff = 28800000 => hh = 8, mm = 0, ss = 0, msec = 0
     modalText[0].textContent = "Congratulations! You Won!";
     modalText[1].textContent = "With "+movesCount + " Moves and "+ numberofStars +" Stars";
-    //modalText[2].textContent = "You completed the Game in : "+ hh + " Hours " + mm + " Minutes " + timer + " Seconds";
     modalText[2].textContent = "You completed the Game in : "+timer + " Seconds";
     modalText[3].textContent = "Woooooooo!";
     modal.style.display = "block";
-    //console.log(hh+":"+mm+":"+ss);
+}
+
+function openstartmodal()
+{
+    //gameOver = true;
+    //console.log(gameOver);
+    $('#mylevelModal').modal({backdrop: 'static', keyboard: false})  
+    $("#mylevelModal").modal('show');
 }
 /*
 function turnCompatible(elem, src) {
@@ -129,10 +135,12 @@ function turnCompatible(elem, src) {
 */
 
 function updateTimer(){
+    console.log(gameOver);
+    if(!gameOver){
     timer++;
     timerHTML.textContent=timer;
     //console.log(timer);
-    if(!gameOver){
+    
         setTimeout(updateTimer,1000);
     }
 
@@ -161,8 +169,9 @@ function turn(elem, src) {
 */
 var back = "img/back3.png"
 $(".turnCSS").click(function () {
-    if(timer ===0){
+    if(gameOver){
         console.log("start Timer");
+        gameOver = false;
         updateTimer();
     }
     //openmodal();
@@ -187,9 +196,7 @@ $(".turnCSS").click(function () {
         //console.log("card already flipped "+cardClick+" "+tb);
     }
 
-    if(numberofMatches===8){
-        //EndTimer = new Date();
-        //console.log(EndTimer);
+    if(numberofMatches===matchtowin){
         gameOver = true;
         setTimeout(openmodal,2000);
     }
@@ -294,7 +301,24 @@ function Shuffle(o) {
 
 function radFunction(){
     var cards = document.querySelectorAll(".card");
-    var testArray = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
+    var testArray1 = [1,2,3,4,5,6,7,8];
+    var testArray2 = [1,2,3,4,5,6,7,8,9,10,11,12];
+    var testArray3 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
+    //var testArray = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
+    var testArray;
+
+    console.log(level);
+
+    if (level === "LEVEL1"){
+        console.log("LEVEL 1")
+        testArray = testArray1;
+    }else if( level === "LEVEL2"){
+        console.log("LEVEL 2")
+        testArray = testArray2;
+    }else {
+        console.log("Level 3")
+        testArray = testArray3;
+    }
     Shuffle(testArray);
         // jQuery to dump out new values to element with ID of 'dump'
         //$(function() {
@@ -302,4 +326,84 @@ function radFunction(){
             cards[i].id=testArray[i];
             //console.log(testArray[i]);
         }
+}
+
+
+
+//$(document).ready(function(){
+    //$('[data-toggle="popover"]').popover();
+   
+    //$(function () {
+    ///$('.example-popover').popover({
+    //container: 'body'
+    ///})
+    //})
+   
+    //$(function() {
+    //function ready(){
+    function reposition() {
+    var modal = $(this),dialog = modal.find('.modal-dialog');
+    var modal2 = document.getElementById('myModal');
+    //console.log(modal);
+    //console.log(dialog);
+    //console.log(modal2);
+    modal.css('display', 'block');
+    dialog.css("margin-top", Math.max(0, ($(window).height() - dialog.height()) / 2));
+    }
+    
+    $('.modal').on('show.bs.modal', reposition);
+   
+    $(window).on('resize', function() {
+    $('.modal:visible').each(reposition);
+    });
+    //});
+   // });
+//}
+
+
+function chooselevel(){
+    var temp = document.getElementsByName("textEditor");
+    //var level;
+
+    gameOver = true;
+    console.log(gameOver);
+    //console.log(temp);
+    for(var i=0; i < temp.length;i++){
+        if(temp[i].checked){
+            console.log(temp[i].id);
+            level = temp[i].id;
+        };
+    }
+
+    for(var i=0;i<cardrow.length;i++){
+        cardrow[i].style.visibility = 'hidden';
+    }
+    //console.log(level);
+    if(level === "LEVEL1"){
+        modalbutton.innerText = "Level 1"
+        console.log("Leve 1 - 2 rows");
+        matchtowin = 4
+        for(var i=0;i<2;i++){
+            cardrow[i].style.visibility = 'visible'
+        }
+
+    }else if(level === "LEVEL2"){
+        modalbutton.innerText = "Level 2"
+        console.log("Leve 2 - 3 rows");
+        matchtowin = 6
+        for(var i=0;i<3;i++){
+            cardrow[i].style.visibility = 'visible'
+        }
+    }else{
+        modalbutton.innerText = "Level 3"
+        console.log("Leve 3 -4 rows");
+        matchtowin = 8
+        for(var i=0;i<4;i++){
+            cardrow[i].style.visibility = 'visible'
+        }
+
+    }
+
+    resetBoard();
+        
 }
