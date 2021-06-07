@@ -671,9 +671,24 @@ h2 {
     cursor: pointer;
     margin-top: 10px;
   }
-  .row {
-    flex-wrap: nowrap;
-
+  .deck {
+    width: 100%;
+    min-height: 180px;
+    background: linear-gradient(
+160deg
+, #02ccba 0%, #aa7ecd 100%);
+    background-image: url(../img/background1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgb(46 61 73 / 50%);
+    display: flex;
+    flex-flow: nowrap;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0 0 3em;
+    list-style: none;
 }
 
 }
