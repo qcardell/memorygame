@@ -19,12 +19,15 @@ var timerHTML = document.getElementsByClassName("timer")[0];
 
 
 
+
 resetbutton.onclick = function(){
+    //Reset the board and stays that the current level.
     gameOver = true;
     resetBoard();
 }
 
 modalbutton.onclick = function(){
+    //it pauses the timer when you make a choice.
     gameOver = true;
 }
 // Get Stars
@@ -51,6 +54,7 @@ btn.onclick = function() {
 }
 
 window.addEventListener("load", function(){
+    //This automatically open the modal when the applications starts so that you can pick a level.
     openstartmodal();
 });
 document.addEventListener("DOMContentLoaded", function(){
@@ -59,6 +63,7 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 function resetBoard(){
+    //This funcition will reset all the counters and timers back to Zero flip all of the cards overs. 
     console.log(level);
     //gameOver = false;
     timer=0;
@@ -100,8 +105,15 @@ window.onclick = function(event) {
     
 }
 
+
+$(window).resize(function() {
+    document.getElementById('gameName').innerText = $(this).height() + "x" + $(this).width();
+    console.log($(this).height() + "x" + $(this).width());
+  });
+
 function openmodal()
 {
+    //This will open the you won modal.
     var modalText=document.querySelectorAll('.modaltext');
     modalText[0].textContent = "Congratulations! You Won!";
     modalText[1].textContent = "With "+movesCount + " Moves and "+ numberofStars +" Stars";
@@ -112,8 +124,7 @@ function openmodal()
 
 function openstartmodal()
 {
-    //gameOver = true;
-    //console.log(gameOver);
+    //open the model at the beginning so you can pick your level.
     $('#mylevelModal').modal({backdrop: 'static', keyboard: false})  
     $("#mylevelModal").modal('show');
 }
@@ -135,7 +146,8 @@ function turnCompatible(elem, src) {
 */
 
 function updateTimer(){
-    console.log(gameOver);
+    //Check to make sure game over isn't false and if not then it will update the timers.
+    //console.log(gameOver);
     if(!gameOver){
     timer++;
     timerHTML.textContent=timer;
@@ -146,6 +158,7 @@ function updateTimer(){
 
 }
 function turnCSS(elem, src, callback) {
+    //This is an card animation for flipping the cards. 
     $(elem)
         .addClass("flipping")
         .bind("transitionend webkittransitionend", function () { //should add more prefixes

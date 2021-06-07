@@ -434,7 +434,8 @@ body {
 }
 
 .row {
-  margin: 0 0 10px
+  margin: 0 0 10px;
+  width: 100%;
 }
 
 h2 {
@@ -637,4 +638,70 @@ h2 {
   width: 50%;
   /*border: 3px solid green;*/
   padding: 10px;
+}
+
+
+
+@media(max-width:1920px){
+	.card, .crd {
+    box-shadow: 5px 2px 20px 0 rgb(46 61 73 / 50%);
+    height: 125px;
+    width: 125px;
+    -webkit-transition: -webkit-transform 0.5s;
+    transition: transform 0.5s;
+    background: #FFEB7A;
+    background: #FF9D28;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+}
+
+@media(max-width:772px){
+	.card, .crd {
+    box-shadow: 5px 2px 20px 0 rgb(46 61 73 / 50%);
+    height: 100px;
+    width: 100px;
+    -webkit-transition: -webkit-transform 0.5s;
+    transition: transform 0.5s;
+    background: #FFEB7A;
+    background: #FF9D28;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  .row {
+    flex-wrap: nowrap;
+
+}
+
+}
+
+@media(max-width:534px){
+
+  .card, .crd {
+    height: 80px;
+    width: 80px;
+  }
+	
+}
+
+
+@media(max-width:454px){
+
+  .card, .crd {
+    height: 60px;
+    width: 60px;
+  }
+
+}
+
+@media(max-width:379px){
+
+  .card, .crd {
+    height: 40px;
+    width: 40px;
+  }
+
 }
