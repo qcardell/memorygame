@@ -107,8 +107,8 @@ window.onclick = function(event) {
 
 
 $(window).resize(function() {
-    document.getElementById('gameName').innerText = $(this).height() + "x" + $(this).width();
-    console.log($(this).height() + "x" + $(this).width());
+    //document.getElementById('gameName').innerText = $(this).height() + "x" + $(this).width();
+    //console.log($(this).height() + "x" + $(this).width());
   });
 
 function openmodal()
